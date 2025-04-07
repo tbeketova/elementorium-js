@@ -1,0 +1,82 @@
+.slider-sea {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .slider-sea {
+    height: calc(100vh - 70px); /* 100vh минус высота хедера */
+  }
+}
+
+.slider-sea h2 {
+  text-align: center;
+  font-size: 18px;
+}
+
+.slider-sea__list {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  position: relative;
+}
+
+.slider-sea__slide {
+  position: absolute;
+  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+  opacity: 0;
+  z-index: 0;
+}
+
+.slider-sea__slide--active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Переход вручную */
+.slider-sea__slide--manual {
+  transition: opacity 0.1s ease-in-out;
+}
+
+/* Плавный переход автоматически */
+.slider-sea__slide--auto {
+  transition: opacity 0.9s ease-in-out;
+}
+
+.slider-sea__list img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-sea__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.slider-sea__button {
+  display: block;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: rgb(6, 149, 231);
+  color: white;
+  cursor: pointer;
+}
+
+.slider-sea__button:hover {
+  background-color: rgb(14, 77, 205);
+}
+
+.slider-sea__button--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
